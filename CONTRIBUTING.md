@@ -15,10 +15,35 @@ read it before opening a pull request.
   to the Delisted section with a date and reason, they don't silently vanish. A delisted app
   can return by reversing the regression.
 
+## Where entries live
+
+The app listings in README.md are **generated** — don't edit them by hand. Add or change
+entries in [`data/apps.yaml`](data/apps.yaml), then regenerate:
+
+```bash
+pip install pyyaml          # once
+python scripts/generate.py  # rewrites the generated sections of README.md
+```
+
+Commit both files. CI fails the PR if they drift apart. Everything outside the marked
+sections of the README (the test, the stack, resources, papers, the badge) is hand-written —
+edit those directly.
+
 ## Entry format
 
+```yaml
+- name: App Name
+  url: https://homepage-or-repo
+  license: MIT              # SPDX id, Source-available, or Proprietary
+  badges: [plain-files]     # ordered subset: plain-files, open-db, offline, sync
+  description: "One sentence: what it does and why it is sovereign."
+  exit: "how you leave with your data, in one sentence."
+```
+
+Which renders in the README as:
+
 ```markdown
-- [Name](https://homepage-or-repo) `LICENSE` <badges> — One sentence: what it does and why it is sovereign.
+- [App Name](https://homepage-or-repo) `MIT` 📄 — One sentence: what it does and why it is sovereign.
   - *Exit: how you leave with your data, in one sentence.*
 ```
 

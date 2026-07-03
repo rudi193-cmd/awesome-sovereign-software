@@ -61,6 +61,7 @@ to cancel — and an exit plan when you outgrow it.
 
 ## Contents
 
+<!-- TOC:APPS:START -->
 - [Notes & Knowledge](#notes--knowledge)
 - [Tasks & Productivity](#tasks--productivity)
 - [Finance](#finance)
@@ -79,12 +80,14 @@ to cancel — and an exit plan when you outgrow it.
 - [Phone & Wearables](#phone--wearables)
 - [Documents & Office](#documents--office)
 - [Suites & Stores](#suites--stores)
+<!-- TOC:APPS:END -->
 - [Building Sovereign Software](#building-sovereign-software)
 - [Papers & Research](#papers--research)
 - [Related Lists](#related-lists)
 - [The Badge](#the-badge)
 - [Delisted](#delisted)
 
+<!-- APPS:START -->
 ## Notes & Knowledge
 
 - [Obsidian](https://obsidian.md/) `Proprietary` 📄 — Markdown knowledge base over a folder of plain-text files on your disk. Huge plugin ecosystem. Optional paid sync exists but is never required.
@@ -267,6 +270,7 @@ Your pocket and wrist, without a vendor cloud.
 
 - [SAFE App Store](https://github.com/rudi193-cmd/safe-app-store) `Various` 📄 🗃️ — Local-first app suite where every app declares its permissions and data flows in a manifest before install. *Disclosure: maintained by this list's author.*
   - *Exit: each app keeps its data in local SQLite or plain files under your home directory.*
+<!-- APPS:END -->
 
 ## Building Sovereign Software
 

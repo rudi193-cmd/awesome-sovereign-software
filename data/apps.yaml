@@ -1,0 +1,418 @@
+# Source of truth for the app listings in README.md.
+# Edit here, then run: python scripts/generate.py
+# CI fails if README.md and this file drift apart.
+#
+# Entry fields:
+#   name         display name
+#   url          homepage, or source repo if there is no homepage
+#   license      SPDX id, "Source-available", "Proprietary", or omit (see suffix entries)
+#   suffix       optional markdown inserted after the link, before the license tag
+#   badges       ordered subset of [plain-files, open-db, offline, sync]
+#   description  one sentence, <=25 words, ends with a period
+#   exit         the exit plan: concrete mechanism, one sentence
+#   disclosure   optional affiliation note, rendered italicised
+
+categories:
+  - name: Notes & Knowledge
+    apps:
+      - name: Obsidian
+        url: https://obsidian.md/
+        license: Proprietary
+        badges: [plain-files]
+        description: "Markdown knowledge base over a folder of plain-text files on your disk. Huge plugin ecosystem. Optional paid sync exists but is never required."
+        exit: "your vault already is the export — a folder of Markdown any editor can open."
+      - name: Logseq
+        url: https://logseq.com/
+        license: AGPL-3.0
+        badges: [plain-files]
+        description: "Outliner and daily journal on local Markdown/Org files, with backlinks and a graph view."
+        exit: "plain Markdown/Org files in a folder; take them anywhere."
+      - name: Joplin
+        url: https://joplinapp.org/
+        license: AGPL-3.0
+        badges: [sync]
+        description: "Notes and to-dos with end-to-end encrypted sync to targets you control (filesystem, WebDAV, your own server)."
+        exit: "export everything to raw Markdown or the documented JEX archive."
+      - name: Zettlr
+        url: https://www.zettlr.com/
+        license: GPL-3.0
+        badges: [plain-files]
+        description: "Markdown editor built for academic writing: Zettelkasten workflows, citations, exports."
+        exit: "it edits plain Markdown files in place — there is nothing to export."
+      - name: Trilium Notes
+        url: https://github.com/TriliumNext/Trilium
+        license: AGPL-3.0
+        badges: [open-db]
+        description: "Hierarchical knowledge base in a local database, with scripting and optional self-hosted sync."
+        exit: "full-tree export to Markdown or HTML; the database itself is a local SQLite file."
+      - name: Anytype
+        url: https://anytype.io/
+        license: Source-available
+        badges: [sync]
+        description: "Local-first, end-to-end encrypted workspaces; identity is a keyphrase you hold, not an account."
+        exit: "export any space to Markdown or JSON from the app."
+
+  - name: Tasks & Productivity
+    apps:
+      - name: Taskwarrior
+        url: https://taskwarrior.org/
+        license: MIT
+        badges: [plain-files]
+        description: "Command-line task manager storing tasks in local data files; scriptable and fast."
+        exit: "data files are plain text, and `task export` emits JSON."
+      - name: Super Productivity
+        url: https://super-productivity.com/
+        license: MIT
+        badges: [sync]
+        description: "To-dos, time tracking, and break reminders; local data with optional sync via WebDAV or file providers you choose."
+        exit: "one-click full backup/export to JSON."
+      - name: Loop Habit Tracker
+        url: https://github.com/iSoron/uhabits
+        license: GPL-3.0
+        badges: [offline]
+        description: "Android habit tracker with charts and reminders; fully offline."
+        exit: "full history export to CSV."
+
+  - name: Finance
+    apps:
+      - name: Actual Budget
+        url: https://actualbudget.org/
+        license: MIT
+        badges: [open-db]
+        description: "Envelope budgeting that runs entirely on your device; optional sync via a server you host."
+        exit: "export the whole budget file or CSV; underlying data is SQLite."
+      - name: GnuCash
+        url: https://www.gnucash.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Veteran double-entry accounting for desktop; local files, no cloud anywhere."
+        exit: "the book is a local XML or SQLite file; CSV export built in."
+      - name: Plain Text Accounting
+        url: https://plaintextaccounting.org/
+        suffix: "([ledger](https://ledger-cli.org/) `BSD-3-Clause`, [hledger](https://hledger.org/) `GPL-3.0`, [beancount](https://github.com/beancount/beancount) `GPL-2.0`)"
+        badges: [plain-files]
+        description: "Your books as plain-text journal files under version control. The maximal sovereignty position for financial data."
+        exit: "the journal is already plain text — the format is the export."
+
+  - name: Passwords & Secrets
+    apps:
+      - name: Aegis Authenticator
+        url: https://getaegis.app/
+        license: GPL-3.0
+        badges: [offline]
+        description: "Two-factor codes on Android in an encrypted local vault; the escape from phone-number-jail 2FA apps."
+        exit: "export the vault as encrypted or plaintext JSON, importable by other authenticators."
+      - name: Cryptomator
+        url: https://cryptomator.org/
+        license: GPL-3.0
+        badges: [sync]
+        description: "Client-side encryption that makes any cloud folder sovereign: your keys, their storage."
+        exit: "the vault format has an open spec and independent readers; decrypt back to plain files anytime."
+      - name: KeePassXC
+        url: https://keepassxc.org/
+        license: GPL-3.0
+        badges: [open-db, offline]
+        description: "Offline password manager on the open KDBX format; sync the vault file with whatever you already trust."
+        exit: "KDBX is an open standard read by dozens of other apps; CSV export too."
+      - name: pass
+        url: https://www.passwordstore.org/
+        license: GPL-2.0-or-later
+        badges: [plain-files]
+        description: "The Unix password store: GPG-encrypted files in a directory tree, git-friendly."
+        exit: "they're GPG files — decrypt with GPG alone, no pass required."
+      - name: VeraCrypt
+        url: https://github.com/veracrypt/VeraCrypt
+        license: Apache-2.0/TrueCrypt-3.0
+        badges: [offline]
+        description: "Encrypted containers and full-disk volumes, on-device only."
+        exit: "mount the volume and copy the files out; the container format is documented."
+
+  - name: Files, Sync & Backup
+    apps:
+      - name: Syncthing
+        url: https://syncthing.net/
+        license: MPL-2.0
+        badges: [sync]
+        description: "Continuous peer-to-peer file sync between your own devices. No server, no account, no cloud."
+        exit: "your files stay ordinary files in ordinary folders; stop the app and keep everything."
+      - name: LocalSend
+        url: https://localsend.org/
+        license: MIT
+        badges: [offline]
+        description: "Cross-platform AirDrop alternative over your local network; no internet, no account."
+        exit: "nothing is stored; files land wherever you saved them."
+      - name: restic
+        url: https://restic.net/
+        license: BSD-2-Clause
+        description: "Encrypted, deduplicated backups to local disks or any storage you control; your keys, open repository format."
+        exit: "`restic restore` back to plain files; the repo format is documented, with independent implementations."
+      - name: BorgBackup
+        url: https://www.borgbackup.org/
+        license: BSD-3-Clause
+        description: "Deduplicating, encrypted, compression-friendly backup archives you own end to end."
+        exit: "`borg extract` back to plain files; documented archive format."
+
+  - name: Maps & Navigation
+    apps:
+      - name: Organic Maps
+        url: https://organicmaps.app/
+        license: Apache-2.0
+        badges: [offline]
+        description: "Offline maps and turn-by-turn navigation from OpenStreetMap data; no account, no tracking, no ads."
+        exit: "bookmarks and tracks export as KML/GPX — open standards every maps app reads."
+      - name: CoMaps
+        url: https://www.comaps.app/
+        license: Apache-2.0
+        badges: [offline]
+        description: "Community-governed fork of Organic Maps with the same offline-first, no-tracking stance."
+        exit: "same open KML/GPX export as its parent."
+      - name: OsmAnd
+        url: https://osmand.net/
+        license: GPL-3.0
+        badges: [offline]
+        description: "Deeply detailed offline OpenStreetMap browser and navigator for mobile."
+        exit: "favorites and tracks export as GPX."
+
+  - name: Reading & Media
+    apps:
+      - name: Calibre
+        url: https://calibre-ebook.com/
+        license: GPL-3.0
+        description: "E-book library manager and converter; your library is a local folder you can walk away with."
+        exit: "the library is a folder of ordinary ebook files plus readable metadata."
+      - name: KOReader
+        url: https://koreader.rocks/
+        license: AGPL-3.0
+        badges: [offline]
+        description: "Document and e-book reader for e-ink devices, phones, and desktop."
+        exit: "your books are your files; highlights and notes export to text/HTML."
+      - name: NetNewsWire
+        url: https://netnewswire.com/
+        license: MIT
+        description: "Free RSS reader for Mac and iOS; feeds live on your device, no account required."
+        exit: "OPML export — the universal feed-list format."
+      - name: Newsboat
+        url: https://newsboat.org/
+        license: MIT
+        description: "RSS/Atom reader for the terminal; plain config, local cache."
+        exit: "your feed list is already a plain-text file; OPML import/export built in."
+      - name: VLC
+        url: https://www.videolan.org/vlc/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Plays essentially any media file, forever, with no strings attached."
+        exit: "it holds nothing of yours to begin with."
+
+  - name: Media Tools & Archiving
+    intro: "Keep what matters playable forever — in formats that don't need anyone's permission."
+    apps:
+      - name: 7-Zip
+        url: https://www.7-zip.org/
+        license: LGPL-2.1
+        badges: [offline]
+        description: "Archiver for every format that matters, including its own open 7z."
+        exit: "extract and walk away; the formats are open and every OS has a reader."
+      - name: HandBrake
+        url: https://handbrake.fr/
+        license: GPL-2.0
+        badges: [offline]
+        description: "Transcode video from almost anything into standard MP4/MKV."
+        exit: "its whole job is producing open-format files; it keeps nothing."
+      - name: mpv
+        url: https://mpv.io/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Minimal, scriptable media player that will outlive every streaming app on your machine."
+        exit: "plays your files, stores nothing but a plain-text config."
+      - name: OBS Studio
+        url: https://obsproject.com/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Screen recording and streaming; recordings are yours before they're anyone's."
+        exit: "recordings land as ordinary MKV/MP4 files on your disk."
+      - name: yt-dlp
+        url: https://github.com/yt-dlp/yt-dlp
+        license: Unlicense
+        description: "Archive media you have rights to before it disappears behind a login or a shutdown."
+        exit: "output is ordinary media files on disk — that's the point."
+
+  - name: Drawing & Diagrams
+    apps:
+      - name: Excalidraw
+        url: https://excalidraw.com/
+        license: MIT
+        description: "Virtual whiteboard that works offline in the browser with no login; collaboration is optional and end-to-end encrypted."
+        exit: "scenes save to local `.excalidraw` JSON, or export as SVG/PNG."
+      - name: draw.io Desktop
+        url: https://github.com/jgraph/drawio-desktop
+        license: Apache-2.0
+        badges: [offline]
+        description: "The diagrams.net editor as an offline desktop app working on local files."
+        exit: "diagrams are XML files (optionally embedded in PNG/SVG) — readable and diff-able."
+      - name: Xournal++
+        url: https://xournalpp.github.io/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Handwritten notes, PDF annotation, and sketching with stylus support."
+        exit: "`.xopp` files are gzipped XML; PDF export built in."
+
+  - name: Photos
+    apps:
+      - name: digiKam
+        url: https://www.digikam.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Professional photo management over your local library: tagging, faces, search."
+        exit: "photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF."
+      - name: darktable
+        url: https://www.darktable.org/
+        license: GPL-3.0
+        badges: [offline]
+        description: "Raw photo developing and cataloguing; a darkroom that runs on your machine."
+        exit: "originals are never touched; edits live in XMP sidecar files next to your photos."
+
+  - name: Creative Tools
+    intro: "Professional creative work with no subscription meter running and no cloud between you and your files."
+    apps:
+      - name: Ardour
+        url: https://ardour.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Full digital audio workstation for recording, editing, and mixing."
+        exit: "sessions are XML sitting next to plain WAV stems."
+      - name: Audacity
+        url: https://www.audacityteam.org/
+        license: GPL-3.0
+        badges: [offline]
+        description: "The everyone's-first audio editor, still going after 25 years."
+        exit: "projects are a single SQLite file; export WAV/FLAC/MP3 anytime."
+      - name: Blender
+        url: https://www.blender.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "The complete 3D suite: modeling, animation, rendering, video editing."
+        exit: "export to open glTF, OBJ, or Alembic; many tools read `.blend` directly."
+      - name: GIMP
+        url: https://www.gimp.org/
+        license: GPL-3.0-or-later
+        badges: [offline]
+        description: "Full-featured raster image editor."
+        exit: "XCF is documented and readable by other tools; export to PNG/TIFF anytime."
+      - name: Inkscape
+        url: https://inkscape.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Vector graphics editor whose native format is standard SVG."
+        exit: "the working file already is SVG — an open W3C standard."
+      - name: Krita
+        url: https://krita.org/
+        license: GPL-3.0
+        badges: [offline]
+        description: "Digital painting and illustration, built by artists."
+        exit: "`.kra` is a ZIP of PNG layers and XML; exports to every open image format."
+
+  - name: Learning
+    apps:
+      - name: Anki
+        url: https://apps.ankiweb.net/
+        license: AGPL-3.0
+        badges: [sync]
+        description: "Spaced-repetition flashcards; decks are local, and the optional AnkiWeb sync is free, not required."
+        exit: "export decks as `.apkg` or plain text; the collection is a local SQLite file."
+
+  - name: Local AI
+    intro: "Models you run on your own hardware. No API key, no per-token bill, no transcript leaving your machine."
+    apps:
+      - name: Jan
+        url: https://jan.ai/
+        license: AGPL-3.0
+        description: "Desktop ChatGPT alternative running open-weight models locally; conversations stored on your device."
+        exit: "chats are local files; models are standard GGUF you can run with any other engine."
+      - name: llama.cpp
+        url: https://github.com/ggml-org/llama.cpp
+        license: MIT
+        badges: [offline]
+        description: "The engine of the local-inference movement: run open-weight LLMs on ordinary CPUs and GPUs, from a single binary."
+        exit: "stateless — your models are GGUF files usable everywhere; it keeps nothing else."
+      - name: Ollama
+        url: https://ollama.com/
+        license: MIT
+        description: "Pull and run open-weight models locally with one command; models are files on your disk in an open format."
+        exit: "models are GGUF-based files on disk, reusable with other runners; no personal data held."
+
+  - name: Messaging
+    apps:
+      - name: Briar
+        url: https://briarproject.org/
+        license: GPL-3.0
+        badges: [sync]
+        description: "Peer-to-peer encrypted messaging over Tor, Wi-Fi, or Bluetooth; no server and no phone number."
+        exit: "nothing ever leaves your device to reclaim — there is no server-side you to delete."
+      - name: Jami
+        url: https://jami.net/
+        license: GPL-3.0
+        badges: [sync]
+        description: "Distributed calls and messaging; your \"account\" is a keypair generated on your device."
+        exit: "back up the keypair as a file and move it to any device."
+
+  - name: Email, Calendar & Contacts
+    intro: |-
+      Email needs a provider by nature. These keep the provider swappable and the archive yours — the
+      client survives even when the company behind your inbox doesn't.
+    apps:
+      - name: DAVx⁵
+        url: https://www.davx5.com/
+        license: GPL-3.0
+        badges: [sync]
+        description: "CalDAV/CardDAV sync for Android; point your contacts and calendars at any server you choose."
+        exit: "everything lives in standard vCard and iCalendar on a server you picked; repoint anytime."
+      - name: Thunderbird for Android (K-9 Mail)
+        url: https://k9mail.app/
+        license: Apache-2.0
+        description: "Mail client for any IMAP provider; no vendor account, no lock-in to the app."
+        exit: "mail stays on the provider you chose; settings export; switch clients freely."
+      - name: Thunderbird
+        url: https://www.thunderbird.net/
+        license: MPL-2.0
+        description: "Desktop email, calendar, and contacts with a local archive, from any provider."
+        exit: "mail is stored locally in open mbox/Maildir; copy the profile folder and it all comes with you."
+
+  - name: Phone & Wearables
+    intro: "Your pocket and wrist, without a vendor cloud."
+    apps:
+      - name: AntennaPod
+        url: https://antennapod.org/
+        license: GPL-3.0
+        description: "Podcast manager pulling straight from open RSS feeds; no platform account."
+        exit: "OPML export of subscriptions plus a full database backup."
+      - name: Gadgetbridge
+        url: https://gadgetbridge.org/
+        license: AGPL-3.0
+        badges: [offline, open-db]
+        description: "Run smartwatches and fitness trackers with **no vendor app and no vendor cloud**; your health data never leaves the phone."
+        exit: "data sits in a local database with export and auto-backup — and no vendor account ever existed to delete."
+      - name: Markor
+        url: https://github.com/gsantner/markor
+        license: Apache-2.0
+        badges: [plain-files, offline]
+        description: "Android editor for Markdown, todo.txt, and plain text."
+        exit: "plain files on your storage; pairs with any desktop editor via Syncthing."
+
+  - name: Documents & Office
+    apps:
+      - name: LibreOffice
+        url: https://www.libreoffice.org/
+        license: MPL-2.0
+        badges: [offline]
+        description: "The full office suite on open document formats. The original sovereign software."
+        exit: "ODF is an ISO standard readable by every major office suite."
+
+  - name: Suites & Stores
+    apps:
+      - name: SAFE App Store
+        url: https://github.com/rudi193-cmd/safe-app-store
+        license: Various
+        badges: [plain-files, open-db]
+        description: "Local-first app suite where every app declares its permissions and data flows in a manifest before install."
+        disclosure: "maintained by this list's author."
+        exit: "each app keeps its data in local SQLite or plain files under your home directory."
