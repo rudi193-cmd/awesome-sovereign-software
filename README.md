@@ -47,6 +47,7 @@ alternatives in the categories below.
 |---|---|---|
 | Notes | [Obsidian](https://obsidian.md/) | [Logseq](https://logseq.com/) if you want open source |
 | Passwords | [KeePassXC](https://keepassxc.org/) | [pass](https://www.passwordstore.org/) if you live in a terminal |
+| Two-factor codes | [Aegis Authenticator](https://getaegis.app/) | KeePassXC stores TOTP too |
 | File sync | [Syncthing](https://syncthing.net/) | [LocalSend](https://localsend.org/) for one-off transfers |
 | Backup | [restic](https://restic.net/) | [BorgBackup](https://www.borgbackup.org/) |
 | Maps | [Organic Maps](https://organicmaps.app/) | [CoMaps](https://www.comaps.app/) |
@@ -67,11 +68,15 @@ to cancel — and an exit plan when you outgrow it.
 - [Files, Sync & Backup](#files-sync--backup)
 - [Maps & Navigation](#maps--navigation)
 - [Reading & Media](#reading--media)
+- [Media Tools & Archiving](#media-tools--archiving)
 - [Drawing & Diagrams](#drawing--diagrams)
 - [Photos](#photos)
+- [Creative Tools](#creative-tools)
 - [Learning](#learning)
 - [Local AI](#local-ai)
 - [Messaging](#messaging)
+- [Email, Calendar & Contacts](#email-calendar--contacts)
+- [Phone & Wearables](#phone--wearables)
 - [Documents & Office](#documents--office)
 - [Suites & Stores](#suites--stores)
 - [Building Sovereign Software](#building-sovereign-software)
@@ -115,10 +120,16 @@ to cancel — and an exit plan when you outgrow it.
 
 ## Passwords & Secrets
 
+- [Aegis Authenticator](https://getaegis.app/) `GPL-3.0` 📵 — Two-factor codes on Android in an encrypted local vault; the escape from phone-number-jail 2FA apps.
+  - *Exit: export the vault as encrypted or plaintext JSON, importable by other authenticators.*
+- [Cryptomator](https://cryptomator.org/) `GPL-3.0` 🔁 — Client-side encryption that makes any cloud folder sovereign: your keys, their storage.
+  - *Exit: the vault format has an open spec and independent readers; decrypt back to plain files anytime.*
 - [KeePassXC](https://keepassxc.org/) `GPL-3.0` 🗃️ 📵 — Offline password manager on the open KDBX format; sync the vault file with whatever you already trust.
   - *Exit: KDBX is an open standard read by dozens of other apps; CSV export too.*
 - [pass](https://www.passwordstore.org/) `GPL-2.0-or-later` 📄 — The Unix password store: GPG-encrypted files in a directory tree, git-friendly.
   - *Exit: they're GPG files — decrypt with GPG alone, no pass required.*
+- [VeraCrypt](https://github.com/veracrypt/VeraCrypt) `Apache-2.0/TrueCrypt-3.0` 📵 — Encrypted containers and full-disk volumes, on-device only.
+  - *Exit: mount the volume and copy the files out; the container format is documented.*
 
 ## Files, Sync & Backup
 
@@ -153,6 +164,21 @@ to cancel — and an exit plan when you outgrow it.
 - [VLC](https://www.videolan.org/vlc/) `GPL-2.0-or-later` 📵 — Plays essentially any media file, forever, with no strings attached.
   - *Exit: it holds nothing of yours to begin with.*
 
+## Media Tools & Archiving
+
+Keep what matters playable forever — in formats that don't need anyone's permission.
+
+- [7-Zip](https://www.7-zip.org/) `LGPL-2.1` 📵 — Archiver for every format that matters, including its own open 7z.
+  - *Exit: extract and walk away; the formats are open and every OS has a reader.*
+- [HandBrake](https://handbrake.fr/) `GPL-2.0` 📵 — Transcode video from almost anything into standard MP4/MKV.
+  - *Exit: its whole job is producing open-format files; it keeps nothing.*
+- [mpv](https://mpv.io/) `GPL-2.0-or-later` 📵 — Minimal, scriptable media player that will outlive every streaming app on your machine.
+  - *Exit: plays your files, stores nothing but a plain-text config.*
+- [OBS Studio](https://obsproject.com/) `GPL-2.0-or-later` 📵 — Screen recording and streaming; recordings are yours before they're anyone's.
+  - *Exit: recordings land as ordinary MKV/MP4 files on your disk.*
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) `Unlicense` — Archive media you have rights to before it disappears behind a login or a shutdown.
+  - *Exit: output is ordinary media files on disk — that's the point.*
+
 ## Drawing & Diagrams
 
 - [Excalidraw](https://excalidraw.com/) `MIT` — Virtual whiteboard that works offline in the browser with no login; collaboration is optional and end-to-end encrypted.
@@ -168,6 +194,23 @@ to cancel — and an exit plan when you outgrow it.
   - *Exit: photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF.*
 - [darktable](https://www.darktable.org/) `GPL-3.0` 📵 — Raw photo developing and cataloguing; a darkroom that runs on your machine.
   - *Exit: originals are never touched; edits live in XMP sidecar files next to your photos.*
+
+## Creative Tools
+
+Professional creative work with no subscription meter running and no cloud between you and your files.
+
+- [Ardour](https://ardour.org/) `GPL-2.0-or-later` 📵 — Full digital audio workstation for recording, editing, and mixing.
+  - *Exit: sessions are XML sitting next to plain WAV stems.*
+- [Audacity](https://www.audacityteam.org/) `GPL-3.0` 📵 — The everyone's-first audio editor, still going after 25 years.
+  - *Exit: projects are a single SQLite file; export WAV/FLAC/MP3 anytime.*
+- [Blender](https://www.blender.org/) `GPL-2.0-or-later` 📵 — The complete 3D suite: modeling, animation, rendering, video editing.
+  - *Exit: export to open glTF, OBJ, or Alembic; many tools read `.blend` directly.*
+- [GIMP](https://www.gimp.org/) `GPL-3.0-or-later` 📵 — Full-featured raster image editor.
+  - *Exit: XCF is documented and readable by other tools; export to PNG/TIFF anytime.*
+- [Inkscape](https://inkscape.org/) `GPL-2.0-or-later` 📵 — Vector graphics editor whose native format is standard SVG.
+  - *Exit: the working file already is SVG — an open W3C standard.*
+- [Krita](https://krita.org/) `GPL-3.0` 📵 — Digital painting and illustration, built by artists.
+  - *Exit: `.kra` is a ZIP of PNG layers and XML; exports to every open image format.*
 
 ## Learning
 
@@ -191,6 +234,29 @@ Models you run on your own hardware. No API key, no per-token bill, no transcrip
   - *Exit: nothing ever leaves your device to reclaim — there is no server-side you to delete.*
 - [Jami](https://jami.net/) `GPL-3.0` 🔁 — Distributed calls and messaging; your "account" is a keypair generated on your device.
   - *Exit: back up the keypair as a file and move it to any device.*
+
+## Email, Calendar & Contacts
+
+Email needs a provider by nature. These keep the provider swappable and the archive yours — the
+client survives even when the company behind your inbox doesn't.
+
+- [DAVx⁵](https://www.davx5.com/) `GPL-3.0` 🔁 — CalDAV/CardDAV sync for Android; point your contacts and calendars at any server you choose.
+  - *Exit: everything lives in standard vCard and iCalendar on a server you picked; repoint anytime.*
+- [Thunderbird for Android (K-9 Mail)](https://k9mail.app/) `Apache-2.0` — Mail client for any IMAP provider; no vendor account, no lock-in to the app.
+  - *Exit: mail stays on the provider you chose; settings export; switch clients freely.*
+- [Thunderbird](https://www.thunderbird.net/) `MPL-2.0` — Desktop email, calendar, and contacts with a local archive, from any provider.
+  - *Exit: mail is stored locally in open mbox/Maildir; copy the profile folder and it all comes with you.*
+
+## Phone & Wearables
+
+Your pocket and wrist, without a vendor cloud.
+
+- [AntennaPod](https://antennapod.org/) `GPL-3.0` — Podcast manager pulling straight from open RSS feeds; no platform account.
+  - *Exit: OPML export of subscriptions plus a full database backup.*
+- [Gadgetbridge](https://gadgetbridge.org/) `AGPL-3.0` 📵 🗃️ — Run smartwatches and fitness trackers with **no vendor app and no vendor cloud**; your health data never leaves the phone.
+  - *Exit: data sits in a local database with export and auto-backup — and no vendor account ever existed to delete.*
+- [Markor](https://github.com/gsantner/markor) `Apache-2.0` 📄 📵 — Android editor for Markdown, todo.txt, and plain text.
+  - *Exit: plain files on your storage; pairs with any desktop editor via Syncthing.*
 
 ## Documents & Office
 
