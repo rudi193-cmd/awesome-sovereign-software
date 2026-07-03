@@ -19,10 +19,13 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          # 429 = rate-limited, not dead; GitHub anchors are checked by lychee natively
+          # 429 = rate-limited, not dead; GitHub anchors are checked by lychee natively.
+          # Excluded hosts return 403 to CI crawlers regardless of link health (bot walls).
           args: >-
             --no-progress
             --accept 200..=206,429
             --max-retries 3
+            --exclude '^https://dl\.acm\.org'
+            --exclude '^https://[^/]*substack\.com'
             README.md CONTRIBUTING.md
           fail: true
