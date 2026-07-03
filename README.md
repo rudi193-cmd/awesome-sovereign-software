@@ -9,6 +9,9 @@ for user sovereignty. If the vendor vanished tomorrow, everything on this list w
 And because sovereignty *is* the ability to leave, **every entry documents its exit plan** — how you
 walk away with your data.
 
+**New:** [The Sovereignty Report 2026](report/2026.md) — twelve mainstream products scored
+against the same five-point test, receipts included.
+
 For the developer-tooling side of local-first, see the [related lists](#related-lists) at the bottom.
 
 ## The Sovereignty Test
